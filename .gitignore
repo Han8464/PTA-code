@@ -1,5 +1,11 @@
-*.out
+out/
 *.idea
 *.iml
 *.class
-*.debug
+debug/
+ipch/
+*.sdf
+*.sln
+*.vcxproj
+*.vcsproj.filters
+*.user
