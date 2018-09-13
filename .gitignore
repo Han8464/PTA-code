@@ -10,3 +10,4 @@ ipch/
 *.filters
 *.user
 *.suo
+*.opensdf
