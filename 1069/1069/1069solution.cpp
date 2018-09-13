@@ -5,9 +5,10 @@
 using namespace std;
 int main()
 {
-	int same[] = {1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999};
+	//int same[] = {1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999};
 	int N;
 	scanf("%d", &N);
+	/*
 	for(int i = 0 ; i < 9; i++)
 	{
 		if(N == same[i])
@@ -16,7 +17,7 @@ int main()
 			system("pause");
 			return 0;
 		}
-	}
+	}*/
 	while(true)
 	{
 		multiset <int> digits;
@@ -53,10 +54,9 @@ int main()
 		}
 		N = big - small;
 		printf("%04d - %04d = %04d\n", big, small, N);
-		if(N == 6174)
+		if(N == 6174 || N == 0)
 			break;
 	}
-
 	system("pause");
 	return 0;
 }
