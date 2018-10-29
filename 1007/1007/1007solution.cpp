@@ -1,50 +1,30 @@
 #include <cstdio>
 #include <cstdlib>
-int sum[10010][10010] = {0};
 int main()
 {
 	int k;
 	int seq[10010];
 	scanf("%d", &k);
-	int neg_num = 0;
+	int tmp = 0;
+	int max = -1;
+	int left = 0, right = k - 1,tmpleft = 0;
 	for(int i = 0; i < k; i++)
 	{
 		scanf("%d", &seq[i]);
-		if(seq[i] < 0)
+		tmp += seq[i];
+		if(tmp < 0)
 		{
-			neg_num ++;
+			tmp = 0;
+			tmpleft = i + 1;
+		}else if(tmp > max)
+		{
+			max = tmp;
+			right = i;
+			left = tmpleft;
 		}
 	}
-	if(neg_num == k)
-	{
-		printf("0 %d %d", seq[0], seq[k - 1]);
-		system("pause");
-		return 0;
-	}
-	int max = seq[0];
-	int s, e, s_i, e_j;
-	s = e = seq[0];
-	for(int i = 0; i < k; i++)
-	{
-		sum[i][i] = seq[i];
-		if(sum[i][i] > max)
-		{
-			max = sum[i][i];
-			s = seq[i];
-			e = seq[i];
-		}
-		for(int j = i + 1; j < k; j++)
-		{
-			sum[i][j] = sum[i][j - 1] + seq[j];
-			if(sum[i][j] > max)
-			{
-				max = sum[i][j];
-				s = seq[i];
-				e = seq[j];
-			}
-		}
-	}
-	printf("%d %d %d", max, s, e);
+	if(max < 0) max = 0;
+	printf("%d %d %d", max, seq[left], seq[right]);
 	system("pause");
 	return 0;
 }
