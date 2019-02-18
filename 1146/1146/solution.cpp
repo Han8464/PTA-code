@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
+#include <vector>
 using namespace std;
 int gra[1010][1010] = {0};
 using namespace std;
@@ -20,37 +21,35 @@ int main()
 	int r = 0;
 	for(int i = 0; i < k; i++)
 	{
-		int point[6];
-		for(int j = 0; j < 6;j++)
+		vector<int>point;
+		int tag = 0;
+		for(int j = 0; j < n;j++)
 		{
-			scanf("%d", &point[j]);
+			int t1;
+			scanf("%d", &t1);
+			point.push_back(t1);
 		}
-		for(int z = 0; z < 6; z++)
+		for(int z = 0; z < n; z++)
 		{
-			if(gra[point[z]][point[z+1]] == 1 && z == 5)
+			for(int x = z + 1; x <= n; x++)
 			{
-				res[r] = i;
-				r++;
-			}else if(gra[point[z]][point[z+1]] == 0)
-			{
-				break;
+				if(gra[point[x]][point[z]] == 1)
+				{
+					res[r] = i;
+					r++;
+					tag = 1;
+					break;
+				}
 			}
-			
+			if(tag == 1)
+				break;
 		}
 	}
-
-	if (r == 0)
+	for(int i = 0; i < r - 1; i++)
 	{
-		printf ("NOT a topological order");
-	}else
-	{
-		for(int i = 0; i < r - 1; i++)
-		{
-			printf("%d ", res[i]);
-		}
-		printf ("%d", res[r - 1]);
-
+		printf("%d ", res[i]);
 	}
+	printf ("%d", res[r - 1]);
 	system("pause");
 	return 0;
 }
