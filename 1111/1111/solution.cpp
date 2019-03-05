@@ -1,3 +1,4 @@
+/*
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
@@ -147,4 +148,4 @@ int main()
 	system("pause");
 	return 0;
 
-}
+}*/

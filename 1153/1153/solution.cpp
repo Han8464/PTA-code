@@ -1,3 +1,4 @@
+/*
 #include <cstdio>
 #include <cstdlib>
 #include <math.h>
@@ -165,4 +166,4 @@ int main()
 	}
 	system("pause");
 	return 0;
-}
+}*/
